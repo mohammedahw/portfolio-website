@@ -1,30 +1,25 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
+import type { NextPage } from "next";
+import Head from "next/head";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 const Home: NextPage = () => {
   return (
     <>
       <Head>
         <title>Mohammed Ali</title>
-        <meta name="portfolio weebsite" content="portfolio weebsite" />
+        <meta name="portfolio website" content="portfolio website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <nav>
-          <Navbar />
-        </nav>
+        <Navbar />
       </header>
-      <main>
-        <h1 className='font-bold text-slate-700'>Main</h1>
+      <main className="">
+        <h1 className="font-bold text-slate-700">Main</h1>
       </main>
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

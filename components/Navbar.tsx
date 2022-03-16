@@ -35,7 +35,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="px-2 py-3 dark:text-white font-bold font-sans">
+      <nav className="py-4 dark:text-white font-bold font-sans flex justify-center items-center">
         <div className="flex flex-row container justify-around">
           <div className="">
             <Link href={"/"}>Home</Link>
@@ -43,13 +43,13 @@ export default function Navbar() {
           <div className="">
             <ul className="container flex flex-row list-none ml-auto justify-center align-middle items-center">
               <li className="mx-4">
-                <Link href={"/"}>Projects</Link>
+                <Link href={"#projects"}>Projects</Link>
               </li>
               <li className="mx-4">
-                <Link href={"/"}>Blog</Link>
+                <Link href={"/blog"}>Blog</Link>
               </li>
               <li className="mx-4">
-                <Link href={"/"}>About</Link>
+                <Link href={"#footer"}>Contact Info</Link>
               </li>
               <li className="mx-4">{mounted && renderThemeChanger()}</li>
             </ul>

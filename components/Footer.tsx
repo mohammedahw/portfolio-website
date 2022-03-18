@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <>
-      <footer id="footer">footer</footer>
+      <footer id="footer">Contact Me</footer>
     </>
   );
 }

@@ -1,3 +1,7 @@
 export default function Technologies() {
-  return <>tech stack</>;
+  return (
+    <>
+      <div>tech stack</div>
+    </>
+  );
 }

@@ -1,6 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import About from "../components/About";
 import Footer from "../components/Footer";
+import Projects from "../components/Projects";
+import Technologies from "../components/Technologies";
 
 const Home: NextPage = () => {
   return (
@@ -10,9 +13,9 @@ const Home: NextPage = () => {
         <meta name="portfolio website" content="portfolio website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
-        <h1 className="font-bold text-slate-700">Main</h1>
-      </main>
+      <About />
+      <Technologies />
+      <Projects />
       <Footer />
     </>
   );

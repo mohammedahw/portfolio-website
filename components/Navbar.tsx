@@ -1,10 +1,5 @@
 import { BsSun, BsMoon } from "react-icons/bs";
-import {
-  AiFillHome,
-  AiOutlineHome,
-  AiFillCloseCircle,
-  AiOutlineCloseCircle,
-} from "react-icons/ai";
+import { AiOutlineCrown, AiOutlineCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
@@ -51,12 +46,14 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="py-4 dark:text-white font-bold font-sans flex justify-center items-center">
+      <nav className="py-8 dark:text-white flex justify-center items-center">
         <div className="flex flex-row container justify-around">
           <Link href={"/"}>
             <div className="flex md:justify-center md:items-center">
-              <AiOutlineHome className="mt-[1px] mr-2 hover:cursor-pointer h-6 w-6 md:mt-0 md:w-8 md:h-8 pb-1" />
-              <div>Home</div>
+              <AiOutlineCrown className="mt-[1px] mr-2 hover:cursor-pointer h-8 w-7 md:mt-0 md:w-8 md:h-9 pb-1" />
+              <div className="font-bold hover:cursor-pointer text-xl">
+                Mohammed Ali
+              </div>
             </div>
           </Link>
           <div className="">

@@ -7,7 +7,9 @@ export default function About() {
         <div className="justify-center md:flex md:justify-evenly items-center shadow-lg dark:shadow-slate-900 text-lg">
           <div className="md:mx-8 md:pl-32 flex justify-center items-center">
             <Image
-              src="proud.svg"
+              height={"400"}
+              width="400"
+              src="/proud.svg"
               className="w-44 h-44 md:w-64 md:h-64 lg:h-96 lg:w-96"
               alt="dasdass"
             />

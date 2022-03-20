@@ -1,12 +1,15 @@
+import Image from "next/image";
+
 export default function About() {
   return (
     <>
       <main className="md:flex pt-10 justify-center items-center">
         <div className="justify-center md:flex md:justify-evenly items-center shadow-lg dark:shadow-slate-900 text-lg">
           <div className="md:mx-8 md:pl-32 flex justify-center items-center">
-            <img
+            <Image
               src="proud.svg"
               className="w-44 h-44 md:w-64 md:h-64 lg:h-96 lg:w-96"
+              alt="dasdass"
             />
           </div>
           <div className="flex flex-col justify-center items-center lg:mx-8 lg:pr-32">

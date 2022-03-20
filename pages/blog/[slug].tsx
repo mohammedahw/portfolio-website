@@ -19,7 +19,13 @@ export default function BlogPage(props: any) {
       <article className="flex flex-col justify-center items-center pt-4">
         <div className="flex flex-col">
           <strong className="pb-2">{fields.title}</strong>
-          <Image src={url} height={"400"} width={"800"} className="pb-2" />
+          <Image
+            alt="dasdsa"
+            src={url}
+            height={"400"}
+            width={"800"}
+            className="pb-2"
+          />
           <div>
             {fields.article.content.map((item: any) => {
               return documentToReactComponents(item);

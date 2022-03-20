@@ -41,10 +41,11 @@ export default function Projects() {
                 className="flex flex-col items-center justify-center p-2 rounded dark:border-slate-900 dark:shadow-slate-900 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 key={slug}
               >
-                <Link href={`/blog/${slug}`}>
+                <Link href={`/blog/${slug}`} passHref>
                   <div className="flex flex-col items-center justify-center hover:cursor-pointer">
                     <div className="pb-2">{name}</div>
                     <Image
+                      alt="dsadasdas"
                       src={img}
                       width={"600"}
                       height={"400"}

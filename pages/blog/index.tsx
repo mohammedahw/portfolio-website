@@ -22,9 +22,10 @@ export default function BlogPage(props: any) {
                 className="shadow-2xl rounded dark:shadow-slate-900 flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
               >
                 <div className="p-2 font-bold">{fields.title}</div>
-                <Image width={"600"} height="400" src={url} />
+                <Image alt="sdasdsa" width={"600"} height="400" src={url} />
                 <a
                   target="_blank"
+                  rel="noreferrer"
                   href={`/blog/${fields.slug}`}
                   className="pt-2 pl-4 pb-2"
                 >

@@ -48,7 +48,7 @@ export default function Navbar() {
     <>
       <nav className="py-8 dark:text-white flex justify-center items-center">
         <div className="flex flex-row container justify-around">
-          <Link href={"/"}>
+          <Link passHref href={"/"}>
             <div className="flex md:justify-center md:items-center">
               <AiOutlineCrown className="mt-[1px] mr-2 hover:cursor-pointer h-8 w-7 md:mt-0 md:w-8 md:h-9 pb-1" />
               <div className="font-bold hover:cursor-pointer text-xl">

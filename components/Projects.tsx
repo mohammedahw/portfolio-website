@@ -43,7 +43,7 @@ export default function Projects() {
     if (inView) {
       controls.start({
         opacity: 1,
-        transition: { duration: 1.2 },
+        transition: { duration: 1.5 },
       });
     } else {
       controls.start({
@@ -55,17 +55,19 @@ export default function Projects() {
   return (
     <>
       <motion.section
-        ref={ref}
+        animate={controls}
         id="projects"
         className="flex flex-col justify-center items-center pt-24"
       >
         <div className="pb-4 text-xl font-bold">Projects</div>
-        <div className="grid grid-cols-1 gap-8 md:gap-16 content-center items-center text-sm md:text-xl pt-4">
+        <div
+          className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 content-center items-center text-sm md:text-xl pt-4"
+          ref={ref}
+        >
           {projects.map((project) => {
             const { name, slug, img, github, live } = project;
             return (
               <motion.div
-                animate={controls}
                 className="flex flex-col items-center justify-center p-2 rounded dark:border-slate-900 dark:shadow-slate-900 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 key={slug}
               >

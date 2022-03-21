@@ -12,16 +12,18 @@ export default function BlogPage(props: any) {
       <Head>
         <title>Blog</title>
       </Head>
-      <motion.section className="flex flex-col justify-center items-center">
+      <motion.section
+        className="flex flex-col justify-center items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
         <div className="grid grid-cols-1 justify-center items-center gap-10">
           {posts.map((post: any) => {
             const fields = post.fields;
             const url = "http://" + fields.img.fields.file.url.substring(2);
             return (
               <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1.2 }}
                 key={fields.slug}
                 className="shadow-2xl rounded dark:shadow-slate-900 flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
               >

@@ -6,11 +6,35 @@ import {
   AiFillFacebook,
 } from "react-icons/ai";
 import { MdEmail } from "react-icons/md";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 export default function Footer() {
+  const { ref, inView } = useInView();
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        opacity: 1,
+        transition: { duration: 1.2 },
+      });
+    } else {
+      controls.start({
+        opacity: 0,
+      });
+    }
+  }, [controls, inView]);
+
   return (
     <>
-      <footer id="footer" className="flex justify-center items-center pt-24">
+      <motion.footer
+        animate={controls}
+        ref={ref}
+        id="footer"
+        className="flex justify-center items-center pt-24"
+      >
         <div className="pl-4 hover:cursor-pointer">
           <Link href={"https://github.com/mohammedahw"} passHref>
             <a target="_blank">
@@ -42,11 +66,15 @@ export default function Footer() {
             </a>
           </Link>
         </div>
-      </footer>
-      <div className="flex justify-center items-center pt-4 pb-4">
+      </motion.footer>
+      <motion.div
+        animate={controls}
+        ref={ref}
+        className="flex justify-center items-center pt-4 pb-4"
+      >
         <MdEmail className="w-6 h-6" />
         <div className="pl-1">mohammedalihw@gmail.com</div>
-      </div>
+      </motion.div>
     </>
   );
 }

@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 
 const projects = [
   {
@@ -17,6 +20,13 @@ const projects = [
     live: "",
   },
   {
+    name: "Portfolio",
+    slug: "personal-portfolio",
+    img: "/portfolio.webp",
+    github: "https://github.com/mohammedahw/portfolio-website",
+    live: "",
+  },
+  {
     name: "Django Todo App",
     slug: "todo-app",
     img: "/todo.jpg",
@@ -26,9 +36,28 @@ const projects = [
 ];
 
 export default function Projects() {
+  const { ref, inView } = useInView();
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({
+        x: 0,
+        transition: { duration: 0.8 },
+      });
+    } else {
+      controls.start({
+        x: "-100vw",
+      });
+    }
+  }, [controls, inView]);
+
   return (
     <>
-      <section
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        ref={ref}
         id="projects"
         className="flex flex-col justify-center items-center pt-24"
       >
@@ -37,7 +66,8 @@ export default function Projects() {
           {projects.map((project) => {
             const { name, slug, img, github, live } = project;
             return (
-              <div
+              <motion.div
+                animate={controls}
                 className="flex flex-col items-center justify-center p-2 rounded dark:border-slate-900 dark:shadow-slate-900 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 key={slug}
               >
@@ -71,11 +101,11 @@ export default function Projects() {
                     </Link>
                   )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
-      </section>
+      </motion.section>
     </>
   );
 }

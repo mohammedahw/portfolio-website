@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Mohammed Ali</title>
         <meta name="portfolio website" content="portfolio website" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/proud.svg" />
       </Head>
       <About />
       <Technologies />

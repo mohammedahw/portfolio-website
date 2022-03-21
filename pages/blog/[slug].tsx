@@ -4,19 +4,24 @@ import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { useRouter } from "next/router";
 import Footer from "../../components/Footer";
+import { motion } from "framer-motion";
 
 export default function BlogPage(props: any) {
   const data = props.data.items[0];
   const fields = data.fields;
   const url = "http://" + fields.img.fields.file.url.substring(2);
   const slug = useRouter().query.slug;
-  console.log(fields.article.content);
   return (
     <>
       <Head>
         <title>{`Blog | ${slug}`}</title>
       </Head>
-      <article className="flex flex-col justify-center items-center pt-4">
+      <motion.article
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="flex flex-col justify-center items-center pt-4"
+      >
         <div className="flex flex-col">
           <strong className="pb-2">{fields.title}</strong>
           <Image
@@ -32,7 +37,7 @@ export default function BlogPage(props: any) {
             })}
           </div>
         </div>
-      </article>
+      </motion.article>
       <Footer />
     </>
   );

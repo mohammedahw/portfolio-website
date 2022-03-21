@@ -42,12 +42,12 @@ export default function Projects() {
   useEffect(() => {
     if (inView) {
       controls.start({
-        x: 0,
+        opacity: 1,
         transition: { duration: 1.2 },
       });
     } else {
       controls.start({
-        x: "-100vw",
+        opacity: 0,
       });
     }
   }, [controls, inView]);
@@ -55,8 +55,6 @@ export default function Projects() {
   return (
     <>
       <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
         ref={ref}
         id="projects"
         className="flex flex-col justify-center items-center pt-24"

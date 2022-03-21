@@ -43,7 +43,7 @@ export default function Projects() {
     if (inView) {
       controls.start({
         x: 0,
-        transition: { duration: 0.8 },
+        transition: { duration: 1.2 },
       });
     } else {
       controls.start({

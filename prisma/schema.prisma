@@ -23,6 +23,6 @@ model Project {
   image       String
   description String
   blog        Blog?
-  github      String?
+  github      String
   demo        String?
 }

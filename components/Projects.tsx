@@ -3,19 +3,20 @@ import Link from "next/link";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
-import { Project } from "@prisma/client";
+import { Blog, Project } from "@prisma/client";
+
+type ProjectWithBlog = Project & { blog: Blog };
 
 export default function Projects() {
   const { ref, inView } = useInView();
   const controls = useAnimation();
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<ProjectWithBlog[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     fetch("/api/projects")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProjects(data);
         setLoading(false);
       })
@@ -55,9 +56,9 @@ export default function Projects() {
                 className="flex flex-col items-center justify-center p-2 rounded dark:border-slate-900 dark:shadow-slate-900 shadow-2xl transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
                 key={project.id}
               >
-                <Link href={`/blog/1`} passHref>
+                <Link href={`/blog/${project.blog.slug}`} passHref>
                   <div className="flex flex-col items-center justify-center hover:cursor-pointer">
-                    <div className="pb-2">{name}</div>
+                    <div className="pb-2">{project.name}</div>
                     <Image
                       alt="project image"
                       src={project.image}

@@ -1,12 +1,16 @@
 import Head from "next/head";
 import Image from "next/image";
-import { contentful } from "../../contentful";
 import Footer from "../../components/Footer";
 import { motion } from "framer-motion";
+import { prisma } from "../../prisma/prisma.service";
+import { Blog } from "@prisma/client";
 
-export default function BlogPage(props: any) {
-  const { posts } = props;
+interface BlogPageProps {
+  posts: Blog[];
+}
 
+export default function BlogPage({ posts }: BlogPageProps) {
+  console.log(posts);
   return (
     <>
       <Head>
@@ -19,20 +23,23 @@ export default function BlogPage(props: any) {
         transition={{ duration: 1.5 }}
       >
         <div className="grid grid-cols-1 justify-center items-center gap-10">
-          {posts.map((post: any) => {
-            const fields = post.fields;
-            const url = "http://" + fields.img.fields.file.url.substring(2);
+          {posts.map((post) => {
             return (
               <motion.div
-                key={fields.slug}
+                key={post.id}
                 className="shadow-2xl rounded dark:shadow-slate-900 flex flex-col transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
               >
-                <div className="p-2 font-bold">{fields.title}</div>
-                <Image alt="sdasdsa" width={"600"} height="400" src={url} />
+                <div className="p-2 font-bold">{post.title}</div>
+                <Image
+                  alt="project image"
+                  width={"600"}
+                  height="400"
+                  src={post.image}
+                />
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href={`/blog/${fields.slug}`}
+                  href={`/blog/${post.slug}`}
                   className="pt-2 pl-4 pb-2"
                 >
                   <button className="bg-gray-300 hover:bg-gray-400 text-slate-900 dark:bg-gray-600 dark:hover:bg-gray-700 dark:text-gray-100 p-2 rounded">
@@ -49,14 +56,11 @@ export default function BlogPage(props: any) {
   );
 }
 
-export async function getStaticProps() {
-  const data = await contentful.getEntries({
-    content_type: "blogPost",
-  });
-
+export async function getStaticProps(): Promise<{ props: BlogPageProps }> {
+  const posts = await prisma.blog.findMany();
   return {
     props: {
-      posts: data.items,
+      posts,
     },
   };
 }

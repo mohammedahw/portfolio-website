@@ -5,12 +5,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:push": "dotenv -e .env.local -- yarn prisma db push",
+    "db:migrate": "dotenv -e .env.local -- yarn prisma migrate dev"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.11.1",
+    "@prisma/client": "^4.8.0",
     "contentful": "^9.1.18",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.3",
+    "dotenv-cli": "^6.0.0",
     "framer-motion": "^6.2.8",
     "next": "12.0.8",
     "next-themes": "^0.1.1",
@@ -26,6 +30,7 @@
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.8",
     "postcss": "^8.4.5",
+    "prisma": "^4.8.0",
     "tailwindcss": "^3.0.15",
     "typescript": "4.5.5"
   }
